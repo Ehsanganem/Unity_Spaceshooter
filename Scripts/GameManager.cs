@@ -1,0 +1,32 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+using UnityEngine.SceneManagement;
+
+public class GameManager : MonoBehaviour
+{
+    [SerializeField]
+    private bool _isgameover = false;
+
+    
+    public bool _iscoopmode = false;
+
+    // Update is called once per frame
+    void Update()
+    {
+        if(Input.GetKeyDown(KeyCode.R)&& _isgameover)
+        {
+            SceneManager.LoadScene(1);//current game scene
+        }
+        if (Input.GetKeyDown(KeyCode.Escape))
+        {
+            Application.Quit();
+        }
+        
+    }
+
+    public void gameover()
+    {
+        _isgameover = true;
+    }
+}
